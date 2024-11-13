@@ -1,4 +1,4 @@
-async function Conexion(){
+async function listarVideos(){
     try{
         const solicitudFetch = await fetch("http://localhost:3001/videos")
         if(!solicitudFetch.ok){
@@ -14,5 +14,5 @@ async function Conexion(){
 }
 
 export const conexionApi = {
-    Conexion
+    listarVideos
 }
