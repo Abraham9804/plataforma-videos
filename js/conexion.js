@@ -13,6 +13,30 @@ async function listarVideos(){
     }
 }
 
+async function crearVideo(titulo,descripcion,url,imagen){
+    try{
+        const conexionCrear = await fetch("http://localhost:3001/videos",{
+                method: "POST",
+                headers: {"Content-Type":"application/json"},
+                body:JSON.stringify({
+                    titulo: titulo,
+                    descripcion: descripcion,
+                    url: url,
+                    imagen: imagen
+                })
+            })
+        if(!conexionCrear.ok){
+            throw new Error(`Error en la solicitud: ${conexionCrear.status} - ${conexionCrear.statusText}`)
+        }
+        const conexionCrearJson = await conexionCrear.json()
+        return conexionCrearJson
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+
 export const conexionApi = {
-    listarVideos
+    listarVideos, crearVideo
 }
