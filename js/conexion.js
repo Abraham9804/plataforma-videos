@@ -36,7 +36,22 @@ async function crearVideo(titulo,descripcion,url,imagen){
     }
 }
 
+async function buscarVideo(palabraClave){
+    try{
+        const busqueda = await fetch(`http://localhost:3001/videos?q=${palabraClave}`)
+        if(!busqueda.ok){
+            throw new Error("Error en la busqueda")
+        }
+        const busquedaJson = await busqueda.json()
+        return busquedaJson
+    }
+
+    catch(err){
+        console.log(err)
+    }
+}
+
 
 export const conexionApi = {
-    listarVideos, crearVideo
+    listarVideos, crearVideo, buscarVideo
 }
