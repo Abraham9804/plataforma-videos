@@ -20,7 +20,7 @@ async function crearVideo(titulo,descripcion,url,imagen){
                 headers: {"Content-Type":"application/json"},
                 body:JSON.stringify({
                     titulo: titulo,
-                    descripcion: descripcion,
+                    descripcion: `${descripcion} mil visualizaciones`,
                     url: url,
                     imagen: imagen
                 })
