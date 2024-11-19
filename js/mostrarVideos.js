@@ -28,6 +28,7 @@ async function mostrarVideos(){
     }
     catch(err){
         console.log(err)
+        lista.innerHTML = `<h2 class="mensaje__titulo">Ha ocurrido un error en la conexion</h2>`
     }
 }
 

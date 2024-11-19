@@ -18,6 +18,9 @@ botonBuscar.addEventListener("click",async function(){
             lista.appendChild(crearCard(video.titulo, video.descripcion, video.url, video.imagem))
         });
         
+        if(resultadoBusqueda.length == 0){
+            lista.innerHTML = `<h2 class="mensaje__titulo">No se encontraron datos</h2>`
+        }
     }
     catch(err){
         console.log("Ocurrio un error: "+err)
